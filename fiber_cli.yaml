@@ -46,7 +46,7 @@ Command:
     Options:
       - Name: OptHotReload
         Type: bool
-        Flag: hot-reload
+        Flag: r,hot-reload
         Usage: generate hot-reload program logic
 
       - Name: OptNoView

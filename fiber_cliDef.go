@@ -185,7 +185,7 @@ var versionDef = &cli.Command{
 //  }
 
 type newT struct {
-	OptHotReload bool   `cli:"hot-reload" usage:"generate hot-reload program logic"`
+	OptHotReload bool   `cli:"r,hot-reload" usage:"generate hot-reload program logic"`
 	OptNoView    bool   `cli:"no-view" usage:"generate without view engine"`
 	OptView      string `cli:"v,view" usage:"add view <engine> support (html|ace|amber|django|handlebars|jet|mustache|pug). defaults to" dft:"html"`
 	OptGit       bool   `cli:"git" usage:"add .gitignore"`
