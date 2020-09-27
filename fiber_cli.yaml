@@ -1,0 +1,78 @@
+# program name, name for the executable
+ProgramName: fiber
+Authors: 'fiber https://github.com/gofiber/fiber'
+
+PackageName: main
+
+Name: fiber
+Desc: "Fiber application framework"
+Text: Fiber -- Express inspired web framework in Go
+#NumOption: cli.AtLeast(1)
+Style: cli.DenseNormalStyle
+NumArg: cli.AtLeast(1)
+Global: true
+# this (Self) means that root option is using the self-config .json file
+Self: true
+
+#UsageLead: "Usage:\\n  fiber [Options] dir [dirs...]"
+
+Options:
+  - Name: Self
+    Type: '*rootT'
+    Flag: c,config
+    Usage: config file\n
+    #Value: "$__EXEC_FILENAME.json"
+    Value: fiber_cfg.json
+
+  - Name: Verbose
+    Type: cli.Counter
+    Flag: V,verbose
+    Usage: Verbose mode (Multiple -V options increase the verbosity)\n
+
+Command:
+
+  - Name: help
+    Desc: "Output usage information"
+
+  - Name: version
+    Desc: "Output the fiber version number"
+
+  - Name: new
+    Desc: "Fiber application generator"
+    Text: 'Usage:\n  fiber new [options] [dir]'
+    NumArg: cli.AtLeast(1)
+    #NumOption: cli.AtLeast(1)
+
+    Options:
+      - Name: OptHotReload
+        Type: bool
+        Flag: hot-reload
+        Usage: generate hot-reload program logic
+
+      - Name: OptNoView
+        Type: bool
+        Flag: no-view
+        Usage: generate without view engine
+
+      - Name: OptView
+        Type: string
+        Flag: v,view
+        Usage: "add view <engine> support (html|ace|amber|django|handlebars|jet|mustache|pug). defaults to"
+        Value: html
+
+      - Name: OptGit
+        Type: bool
+        Flag: git
+        Usage: add .gitignore
+
+      - Name: OptForce
+        Type: string
+        Flag: f,force
+        Usage: force on non-empty directory
+
+  - Name: run
+    Desc: "Starts your app with hot reload support"
+
+  - Name: pack
+    Desc: "Compress a Fiber application into a single binary"
+
